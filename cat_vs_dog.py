@@ -23,8 +23,8 @@ class CatVsDogContest(object):
     def _init_votes(self, n_cats, n_dogs):
         cats = list(map(lambda x: 'C' + str(x), range(1, n_cats+1)))
         dogs = list(map(lambda x: 'D' + str(x), range(1, n_dogs+1)))
-        initial_votes = [0] * (n_cats + n_dogs)
-        return dict(zip(cats + dogs, initial_votes))
+        initial_votes = [0] * (n_cats+n_dogs)
+        return dict(zip(cats+dogs, initial_votes))
 
 class TestCatVsDogContest(unittest.TestCase):
     def setUp(self):
