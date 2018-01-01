@@ -21,8 +21,8 @@ class CatVsDogContest(object):
         return str(max(self.votes.values()))
 
     def _init_votes(self, n_cats, n_dogs):
-        cats = list(map(lambda x: 'C' + str(x), range(1, n_cats + 1)))
-        dogs = list(map(lambda x: 'D' + str(x), range(1, n_dogs + 1)))
+        cats = list(map(lambda x: 'C' + str(x), range(1, n_cats+1)))
+        dogs = list(map(lambda x: 'D' + str(x), range(1, n_dogs+1)))
         initial_votes = [0] * (n_cats + n_dogs)
         return dict(zip(cats + dogs, initial_votes))
 
@@ -60,12 +60,12 @@ D1 C1"""
                 map(int, data_lines[config_case_position].split(' ')))
             votes = [
                 tuple(l.split(' '))
-                for l in data_lines[config_case_position + 1:config_case_position + n_voters+1]
+                for l in data_lines[config_case_position+1:config_case_position+n_voters+1]
             ]
             contest = CatVsDogContest(n_cats, n_dogs, votes)
             self.contest_cases.append(contest)
             n_configs += 1
-            config_case_position += n_voters + 1
+            config_case_position += n_voters+1
 
     def test_max_num_satisfied_voters(self):
         '''
