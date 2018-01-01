@@ -13,21 +13,20 @@ import unittest
 
 class CatVsDogContest(object):
     def __init__(self, n_cats, n_dogs, votes):
-        self.votes = {}
-        for i in range(1, n_cats+1):
-            self.votes['C'+ str(i)] = 0
-
-        for i in range(1, n_dogs+1):
-            self.votes['D' + str(i)] = 0
-
+        self.votes = self._init_votes(n_cats, n_dogs)
         for stay, leave in votes:
             self.votes[stay] += 1
     
     def max_num_satisfied_voters(self):
         return str(max(self.votes.values()))
 
+    def _init_votes(self, n_cats, n_dogs):
+        cats = list(map(lambda x: 'C' + str(x), range(1, n_cats + 1)))
+        dogs = list(map(lambda x: 'D' + str(x), range(1, n_dogs + 1)))
+        initial_votes = [0] * (n_cats + n_dogs)
+        return dict(zip(cats + dogs, initial_votes))
+
 class TestCatVsDogContest(unittest.TestCase):
-    
     def setUp(self):
         'Init expected_output and contest list based on given data _data'
         self.expected_output = """1
