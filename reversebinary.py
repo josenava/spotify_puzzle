@@ -20,7 +20,7 @@ def reverse_binary(n):
     """
     if not 1 <= n <= MAX_VALUE:
         raise ValueError
-    
+
     binary_str = bin(n)  # '0bXXXX' where XXXX is n in binary
     return int(binary_str[::-1][:-2], 2)
 
