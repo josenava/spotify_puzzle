@@ -1,10 +1,6 @@
 spotify_puzzle
 ==============
 
-spotify puzzle solutions 2013
+Spotify puzzle solutions 2013 (Updated in 2018!!)
 
-This repository contains my own solutions to the problems you can find in spotify puzzle.
-
-Right now you can find a working solution to reversebinary and zipfsong problems in python.
-
-If you want to know some more about the problems you can read them in spotify puzzles webpage.
+This repository contains my own solutions to the problems you can find on spotify puzzle website https://labs.spotify.com/puzzles/.
