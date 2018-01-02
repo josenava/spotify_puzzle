@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/bin/python
 """
 reversebinary puzzle for Spotify.com
 
@@ -10,33 +10,34 @@ You can find me at janavarretecristino@gmail.com
 Follow me on twitter @joseanavarrete
 """
 
-import sys
+import unittest
 
+MAX_VALUE = 1000000000
 
-def reverseBinary(n):
+def reverse_binary(n):
     """
     Receives an integer (n), converts it to its reverse binary
-    E.g reverseBinary(13) returns 11 because the reverse of 1101 is 1011
     """
+    if not 1 <= n <= MAX_VALUE:
+        raise ValueError
+    
     binary_str = bin(n)  # '0bXXXX' where XXXX is n in binary
-    reverse_str = binary_str[::-1][:-2]  # we do not want '0b' characters
+    return int(binary_str[::-1][:-2], 2)
 
-    # It could have been done in one line but I want you to know I know what
-    # I am doing. One line version:
-    # print int(bin(n)[::-1][:-2], 2)
-    print int(reverse_str, 2)
 
+class ReverseBinaryTest(unittest.TestCase):
+    def test_reverse_binary(self):
+        self.assertEqual(reverse_binary(1), 1)
+        self.assertEqual(reverse_binary(13), 11)
+        self.assertEqual(reverse_binary(47), 61)
+
+    def test_wrong_input(self):
+        with self.assertRaises(ValueError):
+            reverse_binary(0)
+            reverse_binary(MAX_VALUE)
 
 def main():
-    try:
-        for number in sys.stdin:
-            n = int(number)
-            if 1 <= n <= 1000000000:
-                reverseBinary(n)
-            else:
-                raise ValueError
-    except ValueError:
-        print "Usage error. Please enter only values between 1 and 10E9"
+    unittest.main()
 
 if __name__ == '__main__':
     main()

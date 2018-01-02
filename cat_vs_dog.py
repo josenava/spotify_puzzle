@@ -18,6 +18,7 @@ class CatVsDogContest(object):
             self.votes[stay] += 1
     
     def max_num_satisfied_voters(self):
+        ''' Gets the max upvotes number '''
         return str(max(self.votes.values()))
 
     def _init_votes(self, n_cats, n_dogs):
@@ -28,7 +29,7 @@ class CatVsDogContest(object):
 
 class TestCatVsDogContest(unittest.TestCase):
     def setUp(self):
-        'Init expected_output and contest list based on given data _data'
+        '''Init expected_output and contest list based on given data _data'''
         self.expected_output = """1
 3
 3"""
