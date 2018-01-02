@@ -8,7 +8,7 @@ https://labs.spotify.com/puzzles/
 
 import unittest
 
-class Song:
+class Song(object):
     """Song which contains zipf, name and position"""
     def __init__(self, n_plays, name, position):
         self.zipf_quality = position*n_plays
